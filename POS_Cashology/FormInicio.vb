@@ -8,7 +8,6 @@ Imports System.Text
 
 Public Class FormInicio
     Public socket As New TcpClient
-
     Public bytes(10024) As Byte
     Public stream As NetworkStream
     Public ip, tempmens, xmessag, menstem, VlorRecicladores, VlorStacker As String
