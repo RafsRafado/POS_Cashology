@@ -23,14 +23,11 @@ Partial Class FormPedidos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnPagamento = New FontAwesome.Sharp.IconButton()
         Me.panelprod = New System.Windows.Forms.Panel()
         Me.lbpreco = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.loadpanels = New System.ComponentModel.BackgroundWorker()
-        Me.loadbebidas = New System.ComponentModel.BackgroundWorker()
-        Me.loadpratos = New System.ComponentModel.BackgroundWorker()
-        Me.loadlanche = New System.ComponentModel.BackgroundWorker()
         Me.btnPagSeg = New FontAwesome.Sharp.IconButton()
         Me.btnPagAnt = New FontAwesome.Sharp.IconButton()
         Me.lbPags = New System.Windows.Forms.Label()
@@ -199,6 +196,7 @@ Partial Class FormPedidos
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(62, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btnPagamento)
         Me.Panel1.Controls.Add(Me.panelprod)
         Me.Panel1.Controls.Add(Me.lbpreco)
         Me.Panel1.Controls.Add(Me.Label2)
@@ -210,6 +208,26 @@ Partial Class FormPedidos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(372, 661)
         Me.Panel1.TabIndex = 22
+        '
+        'btnPagamento
+        '
+        Me.btnPagamento.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.btnPagamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPagamento.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagamento.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnPagamento.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart
+        Me.btnPagamento.IconColor = System.Drawing.Color.Black
+        Me.btnPagamento.IconFont = FontAwesome.Sharp.IconFont.[Auto]
+        Me.btnPagamento.IconSize = 40
+        Me.btnPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPagamento.Location = New System.Drawing.Point(57, 512)
+        Me.btnPagamento.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnPagamento.Name = "btnPagamento"
+        Me.btnPagamento.Size = New System.Drawing.Size(224, 67)
+        Me.btnPagamento.TabIndex = 72
+        Me.btnPagamento.Text = "Pagamento"
+        Me.btnPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnPagamento.UseVisualStyleBackColor = True
         '
         'panelprod
         '
@@ -254,26 +272,6 @@ Partial Class FormPedidos
         Me.Label1.Size = New System.Drawing.Size(125, 38)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "TOTAL:"
-        '
-        'loadpanels
-        '
-        Me.loadpanels.WorkerReportsProgress = True
-        Me.loadpanels.WorkerSupportsCancellation = True
-        '
-        'loadbebidas
-        '
-        Me.loadbebidas.WorkerReportsProgress = True
-        Me.loadbebidas.WorkerSupportsCancellation = True
-        '
-        'loadpratos
-        '
-        Me.loadpratos.WorkerReportsProgress = True
-        Me.loadpratos.WorkerSupportsCancellation = True
-        '
-        'loadlanche
-        '
-        Me.loadlanche.WorkerReportsProgress = True
-        Me.loadlanche.WorkerSupportsCancellation = True
         '
         'btnPagSeg
         '
@@ -1776,10 +1774,6 @@ Partial Class FormPedidos
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents loadpanels As System.ComponentModel.BackgroundWorker
-    Friend WithEvents loadbebidas As System.ComponentModel.BackgroundWorker
-    Friend WithEvents loadpratos As System.ComponentModel.BackgroundWorker
-    Friend WithEvents loadlanche As System.ComponentModel.BackgroundWorker
     Friend WithEvents btnPagSeg As FontAwesome.Sharp.IconButton
     Friend WithEvents btnPagAnt As FontAwesome.Sharp.IconButton
     Friend WithEvents lbPags As Label
@@ -1886,4 +1880,5 @@ Partial Class FormPedidos
     Friend WithEvents lbpreco4 As Label
     Friend WithEvents lbpreco As Label
     Friend WithEvents panelprod As Panel
+    Friend WithEvents btnPagamento As FontAwesome.Sharp.IconButton
 End Class

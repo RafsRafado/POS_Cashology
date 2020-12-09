@@ -260,7 +260,7 @@ Recon:
             receberdata()
             While mensagem = ""
                 wait(0.25)
-            receberdata()
+                receberdata()
             End While
             If Not mensagem.Contains("ER:") Then
                 GoTo Endcon
@@ -271,7 +271,7 @@ Recon:
             receberdata()
             While mensagem = ""
                 wait(0.1)
-            receberdata()
+                receberdata()
             End While
             If mensagem.Contains("ER:") Then
                 lbstatus.Text = "Ocorreu um erro ao conectar com a máquina"
@@ -451,8 +451,25 @@ err:
         End While
         tempmens = mensagem
     End Sub
+    Public Sub pagamento(ByVal quant As Integer)
+        Try
+            quant = Val(quant) * 100
+        Catch ex As Exception
+            MessageBox.Show("Deve ser digitado um valor numérico.", "Erro")
+        End Try
+        Enviar("#B#0#0#0#")
+        Threading.Thread.Sleep(50)
+        receberdata()
+        Enviar("#Q#")
+        Threading.Thread.Sleep(250)
+        receberdata()
+        If mensagem.Contains("ER:") Then
+            MessageBox.Show("Ocorreu um erro.", mensagem)
+            Exit Sub
+        End If
+        'quanto falta pagar/quanto foi inserido
+    End Sub
 End Class
-
 
 Public Structure RGBColors
     Public Shared color1 As Color = Color.FromArgb(172, 126, 241)

@@ -7,11 +7,12 @@ Public Class FormPedidos
     Dim btnativo As IconButton
     Private btnbordaesquerda As Panel
     Public tipo As String
-    Dim pagatual As Integer = 1
-    Dim npags As Integer = 1
+    Dim pagatual As Integer = 0
+    Dim npags As Integer = 0
     Dim numregistos As Integer = 0
     Dim position As Integer = 0
     Dim quant As String
+    Dim valpagar As Integer
     Public Sub New()
 
         ' This call is required by the designer.
@@ -101,14 +102,14 @@ Retry:
         btnPagAnt.Enabled = True
         numregistos = (17 * npags) + 1
         Select Case lbselec.Text
-            Case = "MENUS"
-                loadpanels.RunWorkerAsync()
+            Case = "MENU"
+                carrpedidos(FormInicio.dt_menus, FormInicio.imgmenus)
             Case = "BEBIDAS"
-                loadbebidas.RunWorkerAsync()
+                carrpedidos(FormInicio.dt_bebidas, FormInicio.imgbebidas)
             Case = "PRATOS"
-                loadpratos.RunWorkerAsync()
+                carrpedidos(FormInicio.dt_pratos, FormInicio.imgpratos)
             Case = "LANCHE"
-                loadlanche.RunWorkerAsync()
+                carrpedidos(FormInicio.dt_lanche, FormInicio.imglanche)
         End Select
     End Sub
 
@@ -116,10 +117,20 @@ Retry:
         btnPagSeg.Enabled = True
         pagatual -= 1
         numregistos = (17 * npags) + 1
-        If pagatual = 1 Then
+        If pagatual = 0 Then
             btnPagAnt.Enabled = False
             numregistos = 0
         End If
+        Select Case lbselec.Text
+            Case = "MENU"
+                carrpedidos(FormInicio.dt_menus, FormInicio.imgmenus)
+            Case = "BEBIDAS"
+                carrpedidos(FormInicio.dt_bebidas, FormInicio.imgbebidas)
+            Case = "PRATOS"
+                carrpedidos(FormInicio.dt_pratos, FormInicio.imgpratos)
+            Case = "LANCHE"
+                carrpedidos(FormInicio.dt_lanche, FormInicio.imglanche)
+        End Select
     End Sub
 
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
@@ -197,18 +208,18 @@ Retry:
         Carregar_Menu(17, lb18, lbpreco18, PictureBox18, dt, imgbit)
     End Sub
     Public Sub Carregar_Menu(ByVal num As Integer, ByVal label As Label, ByVal lbpreco As Label, ByVal pb As PictureBox, ByVal dt As DataTable, ByVal img As List(Of Bitmap))
+        num += numregistos
         If num = 0 Then
-            pagatual = 1
-            npags = 1
-            num += numregistos
+            pagatual = 0
+            npags = 0
             If img.Count / 18 = 0 Then
-                npags = 1
+                npags = 0
             ElseIf img.Count / 18 <> img.Count \ 18 Then
-                npags = (img.Count \ 18) + 1
+                npags = (img.Count \ 18)
             Else
-                npags = img.Count \ 18
+                npags = (img.Count \ 18)
             End If
-            lbPags.Text = pagatual & "/" & npags
+            lbPags.Text = pagatual + 1 & "/" & npags + 1
             If npags > pagatual Then
                 btnPagSeg.Enabled = True
             End If
@@ -220,6 +231,7 @@ Retry:
         Catch ex As Exception
             label.Text = Nothing
             pb.Image = Nothing
+            lbpreco.Text = Nothing
         End Try
     End Sub
 
@@ -265,6 +277,7 @@ Retry:
                     lbpreco.Text = lbpreco.Text.Substring(0, lbpreco.Text.Length - 1)
                 End If
                 lbpreco.Text = Val(lbpreco.Text) + Val(valfin)
+                valpagar = Val(lbpreco.Text)
                 lbpreco.Text = lbpreco.Text + "€"
                 For Each ctrl As Control In panelprod.Controls
                     If Val(ctrl.Location.Y) >= pos Then
@@ -322,6 +335,13 @@ checkprod:
                 Next
             End If
         End If
+    End Sub
+    Private Sub btnAdic_Click(sender As Object, e As EventArgs) Handles btnAdic.Click
+        FormAddProd.Show()
+    End Sub
+
+    Private Sub btnpagamento_Click(sender As Object, e As EventArgs) Handles btnPagamento.Click
+        FormPagamento.Show()
     End Sub
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         prodclick(lb1, lbpreco1, IconEdit1)
@@ -448,7 +468,5 @@ checkprod:
         prodclick(lb18, lbpreco18, IconEdit18)
     End Sub
 
-    Private Sub btnAdic_Click(sender As Object, e As EventArgs) Handles btnAdic.Click
-        FormAddProd.Show()
-    End Sub
+
 End Class
