@@ -67,7 +67,7 @@ Partial Class FormInicio
         Me.PanelMenu.Controls.Add(Me.PanelLogo)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelMenu.Location = New System.Drawing.Point(0, 0)
-        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelMenu.Name = "PanelMenu"
         Me.PanelMenu.Size = New System.Drawing.Size(220, 661)
         Me.PanelMenu.TabIndex = 0
@@ -85,7 +85,7 @@ Partial Class FormInicio
         Me.btnHist.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnHist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnHist.Location = New System.Drawing.Point(0, 468)
-        Me.btnHist.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnHist.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnHist.Name = "btnHist"
         Me.btnHist.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.btnHist.Size = New System.Drawing.Size(220, 74)
@@ -108,7 +108,7 @@ Partial Class FormInicio
         Me.btnConfig.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnConfig.Location = New System.Drawing.Point(0, 394)
-        Me.btnConfig.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnConfig.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnConfig.Name = "btnConfig"
         Me.btnConfig.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.btnConfig.Size = New System.Drawing.Size(220, 74)
@@ -131,7 +131,7 @@ Partial Class FormInicio
         Me.btnBalDiar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnBalDiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBalDiar.Location = New System.Drawing.Point(0, 320)
-        Me.btnBalDiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnBalDiar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnBalDiar.Name = "btnBalDiar"
         Me.btnBalDiar.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.btnBalDiar.Size = New System.Drawing.Size(220, 74)
@@ -154,7 +154,7 @@ Partial Class FormInicio
         Me.btnQuant.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnQuant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnQuant.Location = New System.Drawing.Point(0, 246)
-        Me.btnQuant.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnQuant.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnQuant.Name = "btnQuant"
         Me.btnQuant.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.btnQuant.Size = New System.Drawing.Size(220, 74)
@@ -177,7 +177,7 @@ Partial Class FormInicio
         Me.btnPedido.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnPedido.Location = New System.Drawing.Point(0, 172)
-        Me.btnPedido.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnPedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnPedido.Name = "btnPedido"
         Me.btnPedido.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.btnPedido.Size = New System.Drawing.Size(220, 74)
@@ -192,7 +192,7 @@ Partial Class FormInicio
         Me.PanelLogo.Controls.Add(Me.imgHome)
         Me.PanelLogo.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelLogo.Location = New System.Drawing.Point(0, 0)
-        Me.PanelLogo.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelLogo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelLogo.Name = "PanelLogo"
         Me.PanelLogo.Size = New System.Drawing.Size(220, 172)
         Me.PanelLogo.TabIndex = 0
@@ -202,7 +202,7 @@ Partial Class FormInicio
         Me.imgHome.Dock = System.Windows.Forms.DockStyle.Fill
         Me.imgHome.Image = Global.POS_Cashology.My.Resources.Resources.dreamid2
         Me.imgHome.Location = New System.Drawing.Point(0, 0)
-        Me.imgHome.Margin = New System.Windows.Forms.Padding(4)
+        Me.imgHome.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.imgHome.Name = "imgHome"
         Me.imgHome.Size = New System.Drawing.Size(220, 172)
         Me.imgHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -220,7 +220,7 @@ Partial Class FormInicio
         Me.PanelTitulo.Controls.Add(Me.iconformatual)
         Me.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelTitulo.Location = New System.Drawing.Point(220, 0)
-        Me.PanelTitulo.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelTitulo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelTitulo.Name = "PanelTitulo"
         Me.PanelTitulo.Size = New System.Drawing.Size(1179, 71)
         Me.PanelTitulo.TabIndex = 1
@@ -230,7 +230,7 @@ Partial Class FormInicio
         Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox2.Image = Global.POS_Cashology.My.Resources.Resources.dreamid__1_
         Me.PictureBox2.Location = New System.Drawing.Point(456, 6)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(161, 62)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -257,7 +257,7 @@ Partial Class FormInicio
         Me.btnAbrirMenu.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnAbrirMenu.IconSize = 36
         Me.btnAbrirMenu.Location = New System.Drawing.Point(16, 10)
-        Me.btnAbrirMenu.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAbrirMenu.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAbrirMenu.Name = "btnAbrirMenu"
         Me.btnAbrirMenu.Size = New System.Drawing.Size(48, 44)
         Me.btnAbrirMenu.TabIndex = 1
@@ -273,7 +273,7 @@ Partial Class FormInicio
         Me.IconButton1.IconColor = System.Drawing.Color.DarkRed
         Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconButton1.Location = New System.Drawing.Point(1100, 0)
-        Me.IconButton1.Margin = New System.Windows.Forms.Padding(4)
+        Me.IconButton1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.IconButton1.Name = "IconButton1"
         Me.IconButton1.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.IconButton1.Size = New System.Drawing.Size(79, 71)
@@ -302,7 +302,7 @@ Partial Class FormInicio
         Me.iconformatual.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.iconformatual.IconSize = 39
         Me.iconformatual.Location = New System.Drawing.Point(81, 15)
-        Me.iconformatual.Margin = New System.Windows.Forms.Padding(4)
+        Me.iconformatual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.iconformatual.Name = "iconformatual"
         Me.iconformatual.Size = New System.Drawing.Size(43, 39)
         Me.iconformatual.TabIndex = 0
@@ -316,7 +316,7 @@ Partial Class FormInicio
         Me.PanelDesktop.Controls.Add(Me.PictureBox1)
         Me.PanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelDesktop.Location = New System.Drawing.Point(220, 71)
-        Me.PanelDesktop.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelDesktop.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanelDesktop.Name = "PanelDesktop"
         Me.PanelDesktop.Size = New System.Drawing.Size(1179, 590)
         Me.PanelDesktop.TabIndex = 2
@@ -380,7 +380,7 @@ Partial Class FormInicio
         Me.Controls.Add(Me.PanelTitulo)
         Me.Controls.Add(Me.PanelMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "FormInicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

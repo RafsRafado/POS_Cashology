@@ -1,8 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 Public Class FormQuant
-
-    Private Sub FormQuant_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Dim i As Integer = 0
+    Private Sub FormQuant_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
         lb1cS.Text = FormInicio.quantd(0, 0)
         lb1cR.Text = FormInicio.quantd(0, 1)
         lb2cS.Text = FormInicio.quantd(1, 0)
@@ -68,7 +68,7 @@ Public Class FormQuant
             Next
             Dim vlorRecicladoresint, vlorstackerint As Decimal
             vlorRecicladoresint = Val(VlorRecicladores) / 100
-            VlorStackerint = Val(VlorStacker) / 100
+            vlorstackerint = Val(VlorStacker) / 100
             lbtotal.Text = "TOTAL: " & vlorRecicladoresint + vlorstackerint & "€"
             Exit Sub
         Catch ex As Exception

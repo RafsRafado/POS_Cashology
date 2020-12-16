@@ -174,7 +174,7 @@ Public Class FormAddProd
         If txtPreco.Text <> "" Then
             letra = txtPreco.Text.Substring(txtPreco.Text.Length - 1, 1)
         Else
-            MessageBox.Show("Deve adicionar algum número antes de adicionar um ..")
+            txtPreco.Text = "0."
             Exit Sub
         End If
         If letra = "." Then
@@ -191,11 +191,11 @@ Public Class FormAddProd
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         If Panel2.Height > 0 Then
             For i = 50 To 0 Step -1
-                Panel2.Size = New Point(246, i * 3.5)
+                Panel2.Size = New Point(Panel2.Width.ToString, i * 3.5)
             Next
         End If
         For i = 0 To 50
-            Panel1.Size = New Point(639, i * 4.42)
+            Panel1.Size = New Point(Panel1.Width.ToString, i * 4.42)
         Next
     End Sub
 
@@ -206,11 +206,11 @@ Public Class FormAddProd
     Private Sub BackgroundWorker2_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker2.DoWork
         If Panel1.Height > 0 Then
             For i = 50 To 0 Step -1
-                Panel1.Size = New Point(639, i * 4.42)
+                Panel1.Size = New Point(Panel1.Width.ToString, i * 4.42)
             Next
         End If
         For i = 0 To 50
-            Panel2.Size = New Point(246, i * 3.5)
+            Panel2.Size = New Point(Panel2.Width.ToString, i * 3.5)
         Next
     End Sub
 End Class

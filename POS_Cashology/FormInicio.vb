@@ -28,6 +28,7 @@ Public Class FormInicio
     Dim timage As Bitmap
     Dim estadomenu As String = "Abrir"
     Dim tclient As WebClient = New WebClient
+    Public continuarpag As Boolean
 
     Public Sub New()
 
@@ -171,11 +172,6 @@ Retr:
         btnBalDiar.Enabled = True
         btnConfig.Enabled = True
         btnHist.Enabled = True
-    End Sub
-
-    Private Sub IconButton2_Click(sender As Object, e As EventArgs)
-        ativarbotao(sender, RGBColors.color3)
-        abrirformulariof(New FormPedidos)
     End Sub
 
     Private Sub btnHist_sair(sender As Object, e As EventArgs) Handles btnHist.Leave
@@ -436,7 +432,6 @@ err:
             wait(0.25)
             GoTo err
         End Try
-
     End Sub
     Public Sub receberdata()
         mensagem = ""
@@ -460,14 +455,13 @@ err:
         Enviar("#B#0#0#0#")
         Threading.Thread.Sleep(50)
         receberdata()
-        Enviar("#Q#")
-        Threading.Thread.Sleep(250)
-        receberdata()
         If mensagem.Contains("ER:") Then
             MessageBox.Show("Ocorreu um erro.", mensagem)
+            continuarpag = False
             Exit Sub
+        Else
+            continuarpag = True
         End If
-        'quanto falta pagar/quanto foi inserido
     End Sub
 End Class
 

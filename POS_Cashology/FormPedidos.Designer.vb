@@ -132,6 +132,7 @@ Partial Class FormPedidos
         Me.lb4 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.panelprods = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.prod18.SuspendLayout()
         CType(Me.IconEdit18, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,6 +192,7 @@ Partial Class FormPedidos
         Me.prod4.SuspendLayout()
         CType(Me.IconEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelprods.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -223,7 +225,7 @@ Partial Class FormPedidos
         Me.btnPagamento.Location = New System.Drawing.Point(57, 512)
         Me.btnPagamento.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnPagamento.Name = "btnPagamento"
-        Me.btnPagamento.Size = New System.Drawing.Size(224, 67)
+        Me.btnPagamento.Size = New System.Drawing.Size(224, 66)
         Me.btnPagamento.TabIndex = 72
         Me.btnPagamento.Text = "Pagamento"
         Me.btnPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -232,9 +234,10 @@ Partial Class FormPedidos
         'panelprod
         '
         Me.panelprod.AutoScroll = True
-        Me.panelprod.Location = New System.Drawing.Point(8, 47)
+        Me.panelprod.Location = New System.Drawing.Point(0, 47)
+        Me.panelprod.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.panelprod.Name = "panelprod"
-        Me.panelprod.Size = New System.Drawing.Size(358, 299)
+        Me.panelprod.Size = New System.Drawing.Size(369, 299)
         Me.panelprod.TabIndex = 3
         '
         'lbpreco
@@ -242,7 +245,7 @@ Partial Class FormPedidos
         Me.lbpreco.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lbpreco.AutoSize = True
         Me.lbpreco.Font = New System.Drawing.Font("Nirmala UI", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbpreco.Location = New System.Drawing.Point(126, 345)
+        Me.lbpreco.Location = New System.Drawing.Point(125, 345)
         Me.lbpreco.Name = "lbpreco"
         Me.lbpreco.Size = New System.Drawing.Size(0, 38)
         Me.lbpreco.TabIndex = 2
@@ -253,7 +256,7 @@ Partial Class FormPedidos
         Me.Label2.AutoSize = True
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label2.Font = New System.Drawing.Font("Consolas", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(102, 9)
+        Me.Label2.Location = New System.Drawing.Point(101, 9)
         Me.Label2.MaximumSize = New System.Drawing.Size(300, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(179, 38)
@@ -331,11 +334,11 @@ Partial Class FormPedidos
         Me.prod18.Controls.Add(Me.lb18)
         Me.prod18.Controls.Add(Me.PictureBox18)
         Me.prod18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod18.Location = New System.Drawing.Point(1526, 416)
+        Me.prod18.Location = New System.Drawing.Point(1058, 339)
         Me.prod18.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod18.Name = "prod18"
         Me.prod18.Size = New System.Drawing.Size(199, 130)
-        Me.prod18.TabIndex = 66
+        Me.prod18.TabIndex = 64
         '
         'lbpreco18
         '
@@ -355,7 +358,8 @@ Partial Class FormPedidos
         Me.IconEdit18.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit18.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit18.IconSize = 43
-        Me.IconEdit18.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit18.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit18.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit18.Name = "IconEdit18"
         Me.IconEdit18.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit18.TabIndex = 77
@@ -395,11 +399,11 @@ Partial Class FormPedidos
         Me.prod17.Controls.Add(Me.lb17)
         Me.prod17.Controls.Add(Me.PictureBox17)
         Me.prod17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod17.Location = New System.Drawing.Point(1319, 416)
+        Me.prod17.Location = New System.Drawing.Point(852, 339)
         Me.prod17.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod17.Name = "prod17"
         Me.prod17.Size = New System.Drawing.Size(199, 130)
-        Me.prod17.TabIndex = 67
+        Me.prod17.TabIndex = 63
         '
         'lbpreco17
         '
@@ -419,7 +423,8 @@ Partial Class FormPedidos
         Me.IconEdit17.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit17.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit17.IconSize = 43
-        Me.IconEdit17.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit17.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit17.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit17.Name = "IconEdit17"
         Me.IconEdit17.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit17.TabIndex = 76
@@ -459,11 +464,11 @@ Partial Class FormPedidos
         Me.prod13.Controls.Add(Me.lb13)
         Me.prod13.Controls.Add(Me.PictureBox13)
         Me.prod13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod13.Location = New System.Drawing.Point(490, 416)
+        Me.prod13.Location = New System.Drawing.Point(24, 339)
         Me.prod13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod13.Name = "prod13"
         Me.prod13.Size = New System.Drawing.Size(199, 130)
-        Me.prod13.TabIndex = 63
+        Me.prod13.TabIndex = 59
         '
         'lbpreco13
         '
@@ -483,7 +488,8 @@ Partial Class FormPedidos
         Me.IconEdit13.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit13.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit13.IconSize = 43
-        Me.IconEdit13.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit13.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit13.Name = "IconEdit13"
         Me.IconEdit13.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit13.TabIndex = 72
@@ -523,11 +529,11 @@ Partial Class FormPedidos
         Me.prod16.Controls.Add(Me.lb16)
         Me.prod16.Controls.Add(Me.PictureBox16)
         Me.prod16.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod16.Location = New System.Drawing.Point(1110, 416)
+        Me.prod16.Location = New System.Drawing.Point(642, 339)
         Me.prod16.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod16.Name = "prod16"
         Me.prod16.Size = New System.Drawing.Size(199, 130)
-        Me.prod16.TabIndex = 64
+        Me.prod16.TabIndex = 62
         '
         'lbpreco16
         '
@@ -547,7 +553,8 @@ Partial Class FormPedidos
         Me.IconEdit16.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit16.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit16.IconSize = 43
-        Me.IconEdit16.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit16.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit16.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit16.Name = "IconEdit16"
         Me.IconEdit16.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit16.TabIndex = 75
@@ -587,11 +594,11 @@ Partial Class FormPedidos
         Me.prod15.Controls.Add(Me.Lb15)
         Me.prod15.Controls.Add(Me.PictureBox15)
         Me.prod15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod15.Location = New System.Drawing.Point(900, 416)
+        Me.prod15.Location = New System.Drawing.Point(433, 339)
         Me.prod15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod15.Name = "prod15"
         Me.prod15.Size = New System.Drawing.Size(199, 130)
-        Me.prod15.TabIndex = 65
+        Me.prod15.TabIndex = 61
         '
         'lbpreco15
         '
@@ -611,7 +618,8 @@ Partial Class FormPedidos
         Me.IconEdit15.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit15.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit15.IconSize = 43
-        Me.IconEdit15.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit15.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit15.Name = "IconEdit15"
         Me.IconEdit15.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit15.TabIndex = 74
@@ -651,11 +659,11 @@ Partial Class FormPedidos
         Me.prod14.Controls.Add(Me.Lb14)
         Me.prod14.Controls.Add(Me.PictureBox14)
         Me.prod14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod14.Location = New System.Drawing.Point(695, 416)
+        Me.prod14.Location = New System.Drawing.Point(228, 339)
         Me.prod14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod14.Name = "prod14"
         Me.prod14.Size = New System.Drawing.Size(199, 130)
-        Me.prod14.TabIndex = 62
+        Me.prod14.TabIndex = 60
         '
         'lbpreco14
         '
@@ -675,7 +683,8 @@ Partial Class FormPedidos
         Me.IconEdit14.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit14.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit14.IconSize = 43
-        Me.IconEdit14.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit14.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit14.Name = "IconEdit14"
         Me.IconEdit14.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit14.TabIndex = 73
@@ -715,11 +724,11 @@ Partial Class FormPedidos
         Me.prod12.Controls.Add(Me.lb12)
         Me.prod12.Controls.Add(Me.PictureBox12)
         Me.prod12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod12.Location = New System.Drawing.Point(1526, 256)
+        Me.prod12.Location = New System.Drawing.Point(1058, 179)
         Me.prod12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod12.Name = "prod12"
         Me.prod12.Size = New System.Drawing.Size(199, 130)
-        Me.prod12.TabIndex = 60
+        Me.prod12.TabIndex = 58
         '
         'lbpreco12
         '
@@ -739,7 +748,8 @@ Partial Class FormPedidos
         Me.IconEdit12.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit12.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit12.IconSize = 43
-        Me.IconEdit12.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit12.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit12.Name = "IconEdit12"
         Me.IconEdit12.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit12.TabIndex = 13
@@ -789,11 +799,11 @@ Partial Class FormPedidos
         Me.prod11.Controls.Add(Me.lb11)
         Me.prod11.Controls.Add(Me.PictureBox11)
         Me.prod11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod11.Location = New System.Drawing.Point(1319, 256)
+        Me.prod11.Location = New System.Drawing.Point(852, 179)
         Me.prod11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod11.Name = "prod11"
         Me.prod11.Size = New System.Drawing.Size(199, 130)
-        Me.prod11.TabIndex = 61
+        Me.prod11.TabIndex = 57
         '
         'lbpreco11
         '
@@ -813,7 +823,8 @@ Partial Class FormPedidos
         Me.IconEdit11.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit11.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit11.IconSize = 43
-        Me.IconEdit11.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit11.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit11.Name = "IconEdit11"
         Me.IconEdit11.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit11.TabIndex = 12
@@ -874,11 +885,11 @@ Partial Class FormPedidos
         Me.prod7.Controls.Add(Me.IconPictureBox12)
         Me.prod7.Controls.Add(Me.IconPictureBox11)
         Me.prod7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod7.Location = New System.Drawing.Point(490, 256)
+        Me.prod7.Location = New System.Drawing.Point(24, 179)
         Me.prod7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod7.Name = "prod7"
         Me.prod7.Size = New System.Drawing.Size(199, 130)
-        Me.prod7.TabIndex = 57
+        Me.prod7.TabIndex = 53
         '
         'lbpreco7
         '
@@ -898,7 +909,8 @@ Partial Class FormPedidos
         Me.IconEdit7.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit7.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit7.IconSize = 43
-        Me.IconEdit7.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit7.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit7.Name = "IconEdit7"
         Me.IconEdit7.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit7.TabIndex = 14
@@ -937,7 +949,8 @@ Partial Class FormPedidos
         Me.IconPictureBox10.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconPictureBox10.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconPictureBox10.IconSize = 43
-        Me.IconPictureBox10.Location = New System.Drawing.Point(150, 13)
+        Me.IconPictureBox10.Location = New System.Drawing.Point(149, 14)
+        Me.IconPictureBox10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconPictureBox10.Name = "IconPictureBox10"
         Me.IconPictureBox10.Size = New System.Drawing.Size(44, 43)
         Me.IconPictureBox10.TabIndex = 10
@@ -951,7 +964,8 @@ Partial Class FormPedidos
         Me.IconPictureBox12.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconPictureBox12.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconPictureBox12.IconSize = 43
-        Me.IconPictureBox12.Location = New System.Drawing.Point(150, 17)
+        Me.IconPictureBox12.Location = New System.Drawing.Point(149, 17)
+        Me.IconPictureBox12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconPictureBox12.Name = "IconPictureBox12"
         Me.IconPictureBox12.Size = New System.Drawing.Size(44, 43)
         Me.IconPictureBox12.TabIndex = 8
@@ -966,6 +980,7 @@ Partial Class FormPedidos
         Me.IconPictureBox11.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconPictureBox11.IconSize = 43
         Me.IconPictureBox11.Location = New System.Drawing.Point(151, 16)
+        Me.IconPictureBox11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconPictureBox11.Name = "IconPictureBox11"
         Me.IconPictureBox11.Size = New System.Drawing.Size(44, 43)
         Me.IconPictureBox11.TabIndex = 9
@@ -980,11 +995,11 @@ Partial Class FormPedidos
         Me.prod10.Controls.Add(Me.IconEdit10)
         Me.prod10.Controls.Add(Me.PictureBox10)
         Me.prod10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod10.Location = New System.Drawing.Point(1110, 256)
+        Me.prod10.Location = New System.Drawing.Point(642, 179)
         Me.prod10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod10.Name = "prod10"
         Me.prod10.Size = New System.Drawing.Size(199, 130)
-        Me.prod10.TabIndex = 58
+        Me.prod10.TabIndex = 56
         '
         'lbpreco10
         '
@@ -1015,7 +1030,8 @@ Partial Class FormPedidos
         Me.IconEdit10.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit10.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit10.IconSize = 43
-        Me.IconEdit10.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit10.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit10.Name = "IconEdit10"
         Me.IconEdit10.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit10.TabIndex = 11
@@ -1132,11 +1148,11 @@ Partial Class FormPedidos
         Me.prod9.Controls.Add(Me.lb9)
         Me.prod9.Controls.Add(Me.PictureBox9)
         Me.prod9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod9.Location = New System.Drawing.Point(900, 256)
+        Me.prod9.Location = New System.Drawing.Point(433, 179)
         Me.prod9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod9.Name = "prod9"
         Me.prod9.Size = New System.Drawing.Size(199, 130)
-        Me.prod9.TabIndex = 59
+        Me.prod9.TabIndex = 55
         '
         'lbpreco9
         '
@@ -1156,7 +1172,8 @@ Partial Class FormPedidos
         Me.IconEdit9.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit9.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit9.IconSize = 43
-        Me.IconEdit9.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit9.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit9.Name = "IconEdit9"
         Me.IconEdit9.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit9.TabIndex = 12
@@ -1196,7 +1213,7 @@ Partial Class FormPedidos
         Me.prod6.Controls.Add(Me.lb6)
         Me.prod6.Controls.Add(Me.PictureBox6)
         Me.prod6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod6.Location = New System.Drawing.Point(1526, 84)
+        Me.prod6.Location = New System.Drawing.Point(1058, 7)
         Me.prod6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod6.Name = "prod6"
         Me.prod6.Size = New System.Drawing.Size(199, 130)
@@ -1220,7 +1237,8 @@ Partial Class FormPedidos
         Me.IconEdit6.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit6.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit6.IconSize = 43
-        Me.IconEdit6.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit6.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit6.Name = "IconEdit6"
         Me.IconEdit6.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit6.TabIndex = 7
@@ -1260,11 +1278,11 @@ Partial Class FormPedidos
         Me.prod8.Controls.Add(Me.lb8)
         Me.prod8.Controls.Add(Me.PictureBox8)
         Me.prod8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod8.Location = New System.Drawing.Point(695, 256)
+        Me.prod8.Location = New System.Drawing.Point(228, 179)
         Me.prod8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod8.Name = "prod8"
         Me.prod8.Size = New System.Drawing.Size(199, 130)
-        Me.prod8.TabIndex = 56
+        Me.prod8.TabIndex = 54
         '
         'lbpreco8
         '
@@ -1284,7 +1302,8 @@ Partial Class FormPedidos
         Me.IconEdit8.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit8.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit8.IconSize = 43
-        Me.IconEdit8.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit8.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit8.Name = "IconEdit8"
         Me.IconEdit8.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit8.TabIndex = 13
@@ -1324,7 +1343,7 @@ Partial Class FormPedidos
         Me.prod5.Controls.Add(Me.lb5)
         Me.prod5.Controls.Add(Me.PictureBox5)
         Me.prod5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod5.Location = New System.Drawing.Point(1319, 84)
+        Me.prod5.Location = New System.Drawing.Point(852, 7)
         Me.prod5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod5.Name = "prod5"
         Me.prod5.Size = New System.Drawing.Size(199, 130)
@@ -1348,7 +1367,8 @@ Partial Class FormPedidos
         Me.IconEdit5.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit5.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit5.IconSize = 43
-        Me.IconEdit5.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit5.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit5.Name = "IconEdit5"
         Me.IconEdit5.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit5.TabIndex = 6
@@ -1371,7 +1391,7 @@ Partial Class FormPedidos
         Me.PictureBox5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox5.Location = New System.Drawing.Point(2, 3)
+        Me.PictureBox5.Location = New System.Drawing.Point(3, 2)
         Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(195, 87)
@@ -1388,11 +1408,11 @@ Partial Class FormPedidos
         Me.prod1.Controls.Add(Me.lb1)
         Me.prod1.Controls.Add(Me.PictureBox1)
         Me.prod1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod1.Location = New System.Drawing.Point(490, 84)
+        Me.prod1.Location = New System.Drawing.Point(24, 7)
         Me.prod1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod1.Name = "prod1"
         Me.prod1.Size = New System.Drawing.Size(199, 130)
-        Me.prod1.TabIndex = 50
+        Me.prod1.TabIndex = 47
         '
         'lbpreco1
         '
@@ -1412,7 +1432,8 @@ Partial Class FormPedidos
         Me.IconEdit1.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit1.IconSize = 43
-        Me.IconEdit1.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit1.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit1.Name = "IconEdit1"
         Me.IconEdit1.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit1.TabIndex = 2
@@ -1452,11 +1473,11 @@ Partial Class FormPedidos
         Me.prod3.Controls.Add(Me.lb3)
         Me.prod3.Controls.Add(Me.PictureBox3)
         Me.prod3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod3.Location = New System.Drawing.Point(900, 84)
+        Me.prod3.Location = New System.Drawing.Point(433, 7)
         Me.prod3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod3.Name = "prod3"
         Me.prod3.Size = New System.Drawing.Size(199, 130)
-        Me.prod3.TabIndex = 48
+        Me.prod3.TabIndex = 49
         '
         'lbpreco3
         '
@@ -1476,7 +1497,8 @@ Partial Class FormPedidos
         Me.IconEdit3.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit3.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit3.IconSize = 43
-        Me.IconEdit3.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit3.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit3.Name = "IconEdit3"
         Me.IconEdit3.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit3.TabIndex = 4
@@ -1516,11 +1538,11 @@ Partial Class FormPedidos
         Me.prod2.Controls.Add(Me.lb2)
         Me.prod2.Controls.Add(Me.PictureBox2)
         Me.prod2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod2.Location = New System.Drawing.Point(695, 84)
+        Me.prod2.Location = New System.Drawing.Point(228, 7)
         Me.prod2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod2.Name = "prod2"
         Me.prod2.Size = New System.Drawing.Size(199, 130)
-        Me.prod2.TabIndex = 47
+        Me.prod2.TabIndex = 48
         '
         'lbpreco2
         '
@@ -1540,7 +1562,8 @@ Partial Class FormPedidos
         Me.IconEdit2.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit2.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit2.IconSize = 43
-        Me.IconEdit2.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit2.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit2.Name = "IconEdit2"
         Me.IconEdit2.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit2.TabIndex = 3
@@ -1580,11 +1603,11 @@ Partial Class FormPedidos
         Me.prod4.Controls.Add(Me.lb4)
         Me.prod4.Controls.Add(Me.PictureBox4)
         Me.prod4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.prod4.Location = New System.Drawing.Point(1110, 84)
+        Me.prod4.Location = New System.Drawing.Point(642, 7)
         Me.prod4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.prod4.Name = "prod4"
         Me.prod4.Size = New System.Drawing.Size(199, 130)
-        Me.prod4.TabIndex = 49
+        Me.prod4.TabIndex = 50
         '
         'lbpreco4
         '
@@ -1604,7 +1627,8 @@ Partial Class FormPedidos
         Me.IconEdit4.IconColor = System.Drawing.SystemColors.Highlight
         Me.IconEdit4.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.IconEdit4.IconSize = 43
-        Me.IconEdit4.Location = New System.Drawing.Point(150, 3)
+        Me.IconEdit4.Location = New System.Drawing.Point(149, 2)
+        Me.IconEdit4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.IconEdit4.Name = "IconEdit4"
         Me.IconEdit4.Size = New System.Drawing.Size(44, 43)
         Me.IconEdit4.TabIndex = 5
@@ -1653,37 +1677,46 @@ Partial Class FormPedidos
         Me.IconButton1.Text = "Editar Nome"
         Me.IconButton1.UseVisualStyleBackColor = True
         '
+        'panelprods
+        '
+        Me.panelprods.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.panelprods.Controls.Add(Me.prod18)
+        Me.panelprods.Controls.Add(Me.prod17)
+        Me.panelprods.Controls.Add(Me.prod13)
+        Me.panelprods.Controls.Add(Me.prod16)
+        Me.panelprods.Controls.Add(Me.prod15)
+        Me.panelprods.Controls.Add(Me.prod14)
+        Me.panelprods.Controls.Add(Me.prod12)
+        Me.panelprods.Controls.Add(Me.prod11)
+        Me.panelprods.Controls.Add(Me.prod7)
+        Me.panelprods.Controls.Add(Me.prod10)
+        Me.panelprods.Controls.Add(Me.prod9)
+        Me.panelprods.Controls.Add(Me.prod6)
+        Me.panelprods.Controls.Add(Me.prod8)
+        Me.panelprods.Controls.Add(Me.prod5)
+        Me.panelprods.Controls.Add(Me.prod1)
+        Me.panelprods.Controls.Add(Me.prod3)
+        Me.panelprods.Controls.Add(Me.prod2)
+        Me.panelprods.Controls.Add(Me.prod4)
+        Me.panelprods.Location = New System.Drawing.Point(467, 77)
+        Me.panelprods.Name = "panelprods"
+        Me.panelprods.Size = New System.Drawing.Size(1265, 486)
+        Me.panelprods.TabIndex = 72
+        '
         'FormPedidos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(74, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1845, 661)
+        Me.Controls.Add(Me.panelprods)
         Me.Controls.Add(Me.IconButton1)
         Me.Controls.Add(Me.btnPagSeg)
         Me.Controls.Add(Me.btnPagAnt)
         Me.Controls.Add(Me.lbPags)
-        Me.Controls.Add(Me.prod18)
-        Me.Controls.Add(Me.prod17)
-        Me.Controls.Add(Me.prod13)
-        Me.Controls.Add(Me.prod16)
-        Me.Controls.Add(Me.prod15)
-        Me.Controls.Add(Me.prod14)
-        Me.Controls.Add(Me.prod12)
         Me.Controls.Add(Me.lbselec)
-        Me.Controls.Add(Me.prod11)
         Me.Controls.Add(Me.btnAdic)
-        Me.Controls.Add(Me.prod7)
-        Me.Controls.Add(Me.prod10)
         Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.prod9)
-        Me.Controls.Add(Me.prod6)
-        Me.Controls.Add(Me.prod8)
-        Me.Controls.Add(Me.prod5)
-        Me.Controls.Add(Me.prod1)
-        Me.Controls.Add(Me.prod3)
-        Me.Controls.Add(Me.prod2)
-        Me.Controls.Add(Me.prod4)
         Me.Controls.Add(Me.Panel1)
         Me.ForeColor = System.Drawing.SystemColors.Control
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -1767,6 +1800,7 @@ Partial Class FormPedidos
         Me.prod4.PerformLayout()
         CType(Me.IconEdit4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelprods.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1881,4 +1915,5 @@ Partial Class FormPedidos
     Friend WithEvents lbpreco As Label
     Friend WithEvents panelprod As Panel
     Friend WithEvents btnPagamento As FontAwesome.Sharp.IconButton
+    Friend WithEvents panelprods As Panel
 End Class
