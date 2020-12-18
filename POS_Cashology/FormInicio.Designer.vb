@@ -67,9 +67,8 @@ Partial Class FormInicio
         Me.PanelMenu.Controls.Add(Me.PanelLogo)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelMenu.Location = New System.Drawing.Point(0, 0)
-        Me.PanelMenu.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(220, 661)
+        Me.PanelMenu.Size = New System.Drawing.Size(165, 537)
         Me.PanelMenu.TabIndex = 0
         '
         'btnHist
@@ -84,11 +83,10 @@ Partial Class FormInicio
         Me.btnHist.IconColor = System.Drawing.Color.Gainsboro
         Me.btnHist.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnHist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnHist.Location = New System.Drawing.Point(0, 468)
-        Me.btnHist.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnHist.Location = New System.Drawing.Point(0, 380)
         Me.btnHist.Name = "btnHist"
-        Me.btnHist.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.btnHist.Size = New System.Drawing.Size(220, 74)
+        Me.btnHist.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.btnHist.Size = New System.Drawing.Size(165, 60)
         Me.btnHist.TabIndex = 6
         Me.btnHist.Text = "Histórico Vendas"
         Me.btnHist.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -107,11 +105,10 @@ Partial Class FormInicio
         Me.btnConfig.IconColor = System.Drawing.Color.Gainsboro
         Me.btnConfig.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnConfig.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnConfig.Location = New System.Drawing.Point(0, 394)
-        Me.btnConfig.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnConfig.Location = New System.Drawing.Point(0, 320)
         Me.btnConfig.Name = "btnConfig"
-        Me.btnConfig.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.btnConfig.Size = New System.Drawing.Size(220, 74)
+        Me.btnConfig.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.btnConfig.Size = New System.Drawing.Size(165, 60)
         Me.btnConfig.TabIndex = 5
         Me.btnConfig.Text = "Configurações"
         Me.btnConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -130,11 +127,10 @@ Partial Class FormInicio
         Me.btnBalDiar.IconColor = System.Drawing.Color.Gainsboro
         Me.btnBalDiar.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnBalDiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBalDiar.Location = New System.Drawing.Point(0, 320)
-        Me.btnBalDiar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnBalDiar.Location = New System.Drawing.Point(0, 260)
         Me.btnBalDiar.Name = "btnBalDiar"
-        Me.btnBalDiar.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.btnBalDiar.Size = New System.Drawing.Size(220, 74)
+        Me.btnBalDiar.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.btnBalDiar.Size = New System.Drawing.Size(165, 60)
         Me.btnBalDiar.TabIndex = 4
         Me.btnBalDiar.Text = "Balanço Diário"
         Me.btnBalDiar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -153,11 +149,10 @@ Partial Class FormInicio
         Me.btnQuant.IconColor = System.Drawing.Color.Gainsboro
         Me.btnQuant.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnQuant.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnQuant.Location = New System.Drawing.Point(0, 246)
-        Me.btnQuant.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnQuant.Location = New System.Drawing.Point(0, 200)
         Me.btnQuant.Name = "btnQuant"
-        Me.btnQuant.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.btnQuant.Size = New System.Drawing.Size(220, 74)
+        Me.btnQuant.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.btnQuant.Size = New System.Drawing.Size(165, 60)
         Me.btnQuant.TabIndex = 3
         Me.btnQuant.Text = "Quantidades"
         Me.btnQuant.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -176,11 +171,10 @@ Partial Class FormInicio
         Me.btnPedido.IconColor = System.Drawing.Color.Gainsboro
         Me.btnPedido.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnPedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnPedido.Location = New System.Drawing.Point(0, 172)
-        Me.btnPedido.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnPedido.Location = New System.Drawing.Point(0, 140)
         Me.btnPedido.Name = "btnPedido"
-        Me.btnPedido.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.btnPedido.Size = New System.Drawing.Size(220, 74)
+        Me.btnPedido.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.btnPedido.Size = New System.Drawing.Size(165, 60)
         Me.btnPedido.TabIndex = 2
         Me.btnPedido.Text = "Fazer Pedido"
         Me.btnPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -192,9 +186,8 @@ Partial Class FormInicio
         Me.PanelLogo.Controls.Add(Me.imgHome)
         Me.PanelLogo.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelLogo.Location = New System.Drawing.Point(0, 0)
-        Me.PanelLogo.Margin = New System.Windows.Forms.Padding(4)
         Me.PanelLogo.Name = "PanelLogo"
-        Me.PanelLogo.Size = New System.Drawing.Size(220, 172)
+        Me.PanelLogo.Size = New System.Drawing.Size(165, 140)
         Me.PanelLogo.TabIndex = 0
         '
         'imgHome
@@ -202,9 +195,8 @@ Partial Class FormInicio
         Me.imgHome.Dock = System.Windows.Forms.DockStyle.Fill
         Me.imgHome.Image = Global.POS_Cashology.My.Resources.Resources.dreamid2
         Me.imgHome.Location = New System.Drawing.Point(0, 0)
-        Me.imgHome.Margin = New System.Windows.Forms.Padding(4)
         Me.imgHome.Name = "imgHome"
-        Me.imgHome.Size = New System.Drawing.Size(220, 172)
+        Me.imgHome.Size = New System.Drawing.Size(165, 140)
         Me.imgHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.imgHome.TabIndex = 0
         Me.imgHome.TabStop = False
@@ -219,20 +211,18 @@ Partial Class FormInicio
         Me.PanelTitulo.Controls.Add(Me.lbTituloForm)
         Me.PanelTitulo.Controls.Add(Me.iconformatual)
         Me.PanelTitulo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelTitulo.Location = New System.Drawing.Point(220, 0)
-        Me.PanelTitulo.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelTitulo.Location = New System.Drawing.Point(165, 0)
         Me.PanelTitulo.Name = "PanelTitulo"
-        Me.PanelTitulo.Size = New System.Drawing.Size(1179, 71)
+        Me.PanelTitulo.Size = New System.Drawing.Size(884, 58)
         Me.PanelTitulo.TabIndex = 1
         '
         'PictureBox2
         '
         Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox2.Image = Global.POS_Cashology.My.Resources.Resources.dreamid__1_
-        Me.PictureBox2.Location = New System.Drawing.Point(456, 6)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.PictureBox2.Location = New System.Drawing.Point(342, 5)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(161, 62)
+        Me.PictureBox2.Size = New System.Drawing.Size(121, 50)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
@@ -243,9 +233,10 @@ Partial Class FormInicio
         Me.lbhoras.AutoSize = True
         Me.lbhoras.Font = New System.Drawing.Font("Franklin Gothic Medium", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbhoras.ForeColor = System.Drawing.SystemColors.ControlLight
-        Me.lbhoras.Location = New System.Drawing.Point(933, 16)
+        Me.lbhoras.Location = New System.Drawing.Point(700, 13)
+        Me.lbhoras.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lbhoras.Name = "lbhoras"
-        Me.lbhoras.Size = New System.Drawing.Size(0, 38)
+        Me.lbhoras.Size = New System.Drawing.Size(0, 34)
         Me.lbhoras.TabIndex = 3
         '
         'btnAbrirMenu
@@ -256,10 +247,9 @@ Partial Class FormInicio
         Me.btnAbrirMenu.IconColor = System.Drawing.Color.Black
         Me.btnAbrirMenu.IconFont = FontAwesome.Sharp.IconFont.[Auto]
         Me.btnAbrirMenu.IconSize = 36
-        Me.btnAbrirMenu.Location = New System.Drawing.Point(16, 10)
-        Me.btnAbrirMenu.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAbrirMenu.Location = New System.Drawing.Point(12, 8)
         Me.btnAbrirMenu.Name = "btnAbrirMenu"
-        Me.btnAbrirMenu.Size = New System.Drawing.Size(48, 44)
+        Me.btnAbrirMenu.Size = New System.Drawing.Size(36, 36)
         Me.btnAbrirMenu.TabIndex = 1
         Me.btnAbrirMenu.UseVisualStyleBackColor = True
         '
@@ -272,11 +262,10 @@ Partial Class FormInicio
         Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.TimesCircle
         Me.IconButton1.IconColor = System.Drawing.Color.DarkRed
         Me.IconButton1.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.IconButton1.Location = New System.Drawing.Point(1100, 0)
-        Me.IconButton1.Margin = New System.Windows.Forms.Padding(4)
+        Me.IconButton1.Location = New System.Drawing.Point(825, 0)
         Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.IconButton1.Size = New System.Drawing.Size(79, 71)
+        Me.IconButton1.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
+        Me.IconButton1.Size = New System.Drawing.Size(59, 58)
         Me.IconButton1.TabIndex = 5
         Me.IconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -286,10 +275,9 @@ Partial Class FormInicio
         '
         Me.lbTituloForm.AutoSize = True
         Me.lbTituloForm.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lbTituloForm.Location = New System.Drawing.Point(132, 27)
-        Me.lbTituloForm.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbTituloForm.Location = New System.Drawing.Point(99, 22)
         Me.lbTituloForm.Name = "lbTituloForm"
-        Me.lbTituloForm.Size = New System.Drawing.Size(40, 17)
+        Me.lbTituloForm.Size = New System.Drawing.Size(34, 13)
         Me.lbTituloForm.TabIndex = 1
         Me.lbTituloForm.Text = "Início"
         '
@@ -300,11 +288,9 @@ Partial Class FormInicio
         Me.iconformatual.IconChar = FontAwesome.Sharp.IconChar.Home
         Me.iconformatual.IconColor = System.Drawing.Color.MediumPurple
         Me.iconformatual.IconFont = FontAwesome.Sharp.IconFont.[Auto]
-        Me.iconformatual.IconSize = 39
-        Me.iconformatual.Location = New System.Drawing.Point(81, 15)
-        Me.iconformatual.Margin = New System.Windows.Forms.Padding(4)
+        Me.iconformatual.Location = New System.Drawing.Point(61, 12)
         Me.iconformatual.Name = "iconformatual"
-        Me.iconformatual.Size = New System.Drawing.Size(43, 39)
+        Me.iconformatual.Size = New System.Drawing.Size(32, 32)
         Me.iconformatual.TabIndex = 0
         Me.iconformatual.TabStop = False
         '
@@ -315,20 +301,19 @@ Partial Class FormInicio
         Me.PanelDesktop.Controls.Add(Me.lbstatus)
         Me.PanelDesktop.Controls.Add(Me.PictureBox1)
         Me.PanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelDesktop.Location = New System.Drawing.Point(220, 71)
-        Me.PanelDesktop.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanelDesktop.Location = New System.Drawing.Point(165, 58)
         Me.PanelDesktop.Name = "PanelDesktop"
-        Me.PanelDesktop.Size = New System.Drawing.Size(1179, 590)
+        Me.PanelDesktop.Size = New System.Drawing.Size(884, 479)
         Me.PanelDesktop.TabIndex = 2
         '
         'pblogoini
         '
         Me.pblogoini.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pblogoini.Image = Global.POS_Cashology.My.Resources.Resources.dreamid__1_
-        Me.pblogoini.Location = New System.Drawing.Point(285, 0)
-        Me.pblogoini.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pblogoini.Location = New System.Drawing.Point(214, 0)
+        Me.pblogoini.Margin = New System.Windows.Forms.Padding(2)
         Me.pblogoini.Name = "pblogoini"
-        Me.pblogoini.Size = New System.Drawing.Size(489, 287)
+        Me.pblogoini.Size = New System.Drawing.Size(367, 233)
         Me.pblogoini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pblogoini.TabIndex = 2
         Me.pblogoini.TabStop = False
@@ -338,10 +323,11 @@ Partial Class FormInicio
         Me.lbstatus.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lbstatus.AutoSize = True
         Me.lbstatus.Font = New System.Drawing.Font("Myanmar Text", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbstatus.Location = New System.Drawing.Point(409, 332)
-        Me.lbstatus.MaximumSize = New System.Drawing.Size(500, 0)
+        Me.lbstatus.Location = New System.Drawing.Point(307, 270)
+        Me.lbstatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lbstatus.MaximumSize = New System.Drawing.Size(375, 0)
         Me.lbstatus.Name = "lbstatus"
-        Me.lbstatus.Size = New System.Drawing.Size(341, 58)
+        Me.lbstatus.Size = New System.Drawing.Size(282, 48)
         Me.lbstatus.TabIndex = 1
         Me.lbstatus.Text = "A Carregar Aguarde."
         '
@@ -349,10 +335,10 @@ Partial Class FormInicio
         '
         Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox1.Image = Global.POS_Cashology.My.Resources.Resources.ezgif_com_gif_maker
-        Me.PictureBox1.Location = New System.Drawing.Point(339, 331)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(254, 269)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(64, 59)
+        Me.PictureBox1.Size = New System.Drawing.Size(48, 48)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -373,14 +359,13 @@ Partial Class FormInicio
         '
         'FormInicio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1399, 661)
+        Me.ClientSize = New System.Drawing.Size(1049, 537)
         Me.Controls.Add(Me.PanelDesktop)
         Me.Controls.Add(Me.PanelTitulo)
         Me.Controls.Add(Me.PanelMenu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FormInicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

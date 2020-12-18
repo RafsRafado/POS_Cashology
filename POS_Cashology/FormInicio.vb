@@ -28,6 +28,7 @@ Public Class FormInicio
     Dim timage As Bitmap
     Dim estadomenu As String = "Abrir"
     Dim tclient As WebClient = New WebClient
+    Public continuarpag As Boolean
 
     Public Sub New()
 
@@ -458,19 +459,17 @@ err:
             MessageBox.Show("Deve ser digitado um valor numérico.", "Erro")
         End Try
         Enviar("#B#0#0#0#")
-        Threading.Thread.Sleep(50)
-        receberdata()
-        Enviar("#Q#")
-        Threading.Thread.Sleep(250)
+        wait(0.05)
         receberdata()
         If mensagem.Contains("ER:") Then
             MessageBox.Show("Ocorreu um erro.", mensagem)
+            continuarpag = False
             Exit Sub
+        Else
+            continuarpag = True
         End If
-        'quanto falta pagar/quanto foi inserido
     End Sub
 End Class
-
 Public Structure RGBColors
     Public Shared color1 As Color = Color.FromArgb(172, 126, 241)
     Public Shared color2 As Color = Color.FromArgb(249, 118, 176)

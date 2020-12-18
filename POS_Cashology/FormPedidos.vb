@@ -12,7 +12,7 @@ Public Class FormPedidos
     Dim numregistos As Integer = 0
     Dim position As Integer = 0
     Dim quant As String
-    Dim valpagar As Integer
+    Public valpagar As Integer
     Public Sub New()
 
         ' This call is required by the designer.
@@ -90,9 +90,14 @@ Retry:
         ativarbotao(sender, RGBColors.color4)
         carrpedidos(FormInicio.dt_lanche, FormInicio.imglanche)
     End Sub
-    Private Sub FormPedidos_load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FormPedidos_load(sender As Object, e As EventArgs) Handles MyBase.Shown
         Control.CheckForIllegalCrossThreadCalls = False
         btnMenu.PerformClick()
+        For Each ctrl As Control In panelprods.Controls
+            For Each ctrls As Control In ctrl.Controls
+                AddHandler ctrls.Click, AddressOf prod_click
+            Next
+        Next
     End Sub
     Private Sub btnPagSeg_Click(sender As Object, e As EventArgs) Handles btnPagSeg.Click
         pagatual += 1
@@ -134,50 +139,38 @@ Retry:
     End Sub
 
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        Dim picturebox As New PictureBox
+        Dim icon As New FontAwesome.Sharp.IconPictureBox
         If IconButton1.Text = "Editar Nome" Then
             IconButton1.Text = "Terminar Edição"
-            check(PictureBox1, IconEdit1)
-            check(PictureBox2, IconEdit2)
-            check(PictureBox3, IconEdit3)
-            check(PictureBox4, IconEdit4)
-            check(PictureBox5, IconEdit5)
-            check(PictureBox6, IconEdit6)
-            check(PictureBox7, IconEdit7)
-            check(PictureBox8, IconEdit8)
-            check(PictureBox9, IconEdit9)
-            check(PictureBox10, IconEdit10)
-            check(PictureBox11, IconEdit11)
-            check(PictureBox12, IconEdit12)
-            check(PictureBox13, IconEdit13)
-            check(PictureBox14, IconEdit14)
-            check(PictureBox15, IconEdit15)
-            check(PictureBox16, IconEdit16)
-            check(PictureBox17, IconEdit17)
-            check(PictureBox18, IconEdit18)
+            For Each ctrl As Control In panelprods.Controls
+                For Each ctrls As Control In ctrl.Controls
+                    If ctrls.Name.Contains("PictureBox") Then
+                        picturebox = ctrls
+                    ElseIf ctrls.Name.Contains("IconEdit") Then
+                        icon = ctrls
+                    End If
+                Next
+                check(picturebox, icon)
+            Next
             Panel8.Enabled = False
         ElseIf IconButton1.Text = "Terminar Edição" Then
             IconButton1.Text = "Editar Nome"
-            check(PictureBox1, IconEdit1)
-            check(PictureBox2, IconEdit2)
-            check(PictureBox3, IconEdit3)
-            check(PictureBox4, IconEdit4)
-            check(PictureBox5, IconEdit5)
-            check(PictureBox6, IconEdit6)
-            check(PictureBox7, IconEdit7)
-            check(PictureBox8, IconEdit8)
-            check(PictureBox9, IconEdit9)
-            check(PictureBox10, IconEdit10)
-            check(PictureBox11, IconEdit11)
-            check(PictureBox12, IconEdit12)
-            check(PictureBox13, IconEdit13)
-            check(PictureBox14, IconEdit14)
-            check(PictureBox15, IconEdit15)
-            check(PictureBox16, IconEdit16)
-            check(PictureBox17, IconEdit17)
-            check(PictureBox18, IconEdit18)
-            Panel8.Enabled = True
+            If IconButton1.Text = "Editar Nome" Then
+                IconButton1.Text = "Terminar Edição"
+                For Each ctrl As Control In panelprods.Controls
+                    For Each ctrls As Control In ctrl.Controls
+                        If ctrls.Name.Contains("PictureBox") Then
+                            picturebox = ctrls
+                        ElseIf ctrls.Name.Contains("IconEdit") Then
+                            icon = ctrls
+                        End If
+                    Next
+                    check(picturebox, icon)
+                Next
+                Panel8.Enabled = True
+            End If
         End If
-
     End Sub
     Private Sub check(ByVal pb As PictureBox, ByVal ic As IconPictureBox)
         If pb.Image Is Nothing Or IconButton1.Text <> "Terminar Edição" Then
@@ -188,26 +181,39 @@ Retry:
     End Sub
 
     Public Sub carrpedidos(ByVal dt As DataTable, ByVal imgbit As List(Of Bitmap))
-        Carregar_Menu(0, lb1, lbpreco1, PictureBox1, dt, imgbit)
-        Carregar_Menu(1, lb2, lbpreco2, PictureBox2, dt, imgbit)
-        Carregar_Menu(2, lb3, lbpreco3, PictureBox3, dt, imgbit)
-        Carregar_Menu(3, lb4, lbpreco4, PictureBox4, dt, imgbit)
-        Carregar_Menu(4, lb5, lbpreco5, PictureBox5, dt, imgbit)
-        Carregar_Menu(5, lb6, lbpreco6, PictureBox6, dt, imgbit)
-        Carregar_Menu(6, lb7, lbpreco7, PictureBox7, dt, imgbit)
-        Carregar_Menu(7, lb8, lbpreco8, PictureBox8, dt, imgbit)
-        Carregar_Menu(8, lb9, lbpreco9, PictureBox9, dt, imgbit)
-        Carregar_Menu(9, lb10, lbpreco10, PictureBox10, dt, imgbit)
-        Carregar_Menu(10, lb11, lbpreco11, PictureBox11, dt, imgbit)
-        Carregar_Menu(11, lb12, lbpreco12, PictureBox12, dt, imgbit)
-        Carregar_Menu(12, lb13, lbpreco13, PictureBox13, dt, imgbit)
-        Carregar_Menu(13, Lb14, lbpreco14, PictureBox14, dt, imgbit)
-        Carregar_Menu(14, Lb15, lbpreco15, PictureBox15, dt, imgbit)
-        Carregar_Menu(15, lb16, lbpreco16, PictureBox16, dt, imgbit)
-        Carregar_Menu(16, lb17, lbpreco17, PictureBox17, dt, imgbit)
-        Carregar_Menu(17, lb18, lbpreco18, PictureBox18, dt, imgbit)
+        Dim cont As Integer = 0
+        Dim lbpreco As New Label
+        Dim lb As New Label
+        Dim icon As New FontAwesome.Sharp.IconPictureBox
+        Dim picturebox As New PictureBox
+        Dim num As String = ""
+        For Each ctrl As Control In panelprods.Controls
+            cont = 0
+            num = ""
+            While ctrl.Name(cont) <> "d"
+                cont += 1
+            End While
+            cont += 1
+            While cont < ctrl.Name.Length
+                num += ctrl.Name(cont)
+                cont += 1
+            End While
+            For Each ctrls As Control In ctrl.Controls
+                If ctrls.Name.Contains("lbpreco") Then
+                    lbpreco = ctrls
+                ElseIf ctrls.Name.Contains("lb") Then
+                    lb = ctrls
+                ElseIf ctrls.Name.Contains("IconEdit") Then
+                    icon = ctrls
+                ElseIf ctrls.Name.Contains("PictureBox") Then
+                    picturebox = ctrls
+                End If
+            Next
+            Carregar_Menu(Val(num), lb, lbpreco, picturebox, dt, imgbit)
+        Next
     End Sub
     Public Sub Carregar_Menu(ByVal num As Integer, ByVal label As Label, ByVal lbpreco As Label, ByVal pb As PictureBox, ByVal dt As DataTable, ByVal img As List(Of Bitmap))
+        num -= 1
         num += numregistos
         If num = 0 Then
             pagatual = 0
@@ -237,7 +243,7 @@ Retry:
 
 
     Private Sub prodclick(ByVal lb As Label, lbprecoprod As Label, ByVal ip As IconPictureBox)
-
+        quant = Nothing
         If IconButton1.Text = "Terminar Edição" And ip.Visible = True Then
             Dim result As String = InputBox("Qual o novo nome que deseja?", "Insira o novo nome", lb.Text)
             If result = "" Then
@@ -284,7 +290,7 @@ Retry:
                         pos = Val(ctrl.Location.Y) + 90
                     End If
                     If ctrl.GetType.ToString = "System.Windows.Forms.Label" Then
-                        If ctrl.Text.Contains(lb.Text + "-" + valfin + " €") Then
+                        If ctrl.Text.Contains(lb.Text + " -" + valfin + " €") Then
                             Dim i As Integer
                             While ctrl.Text(i) <> "x"
                                 If ctrl.Text(i) <> "x" Then
@@ -294,23 +300,31 @@ Retry:
                             End While
                             Convert.ToInt32(quant)
                             quant += 1
-                            ctrl.Text = quant & "x " & lb.Text & "-" & valfin & " €"
+                            ctrl.Text = quant & "x " & lb.Text & " -" & valfin & " €"
+                            Exit Sub
                         End If
                     End If
                 Next
-                If quant > 1 Then
-                    quant = 0
-                    Exit Sub
-                End If
                 Dim label As New Label With
                 {
-                    .Text = "1x" & lb.Text & "-" & valfin & " €",
+                    .Text = "1x" & lb.Text & " -" & valfin & " €",
                     .Location = New Point(10, pos),
                     .Font = New Font("Comic Sans MS", 17, FontStyle.Bold),
-                    .Height = 100,
-                    .Width = 289
+                    .Height = 90,
+                    .Width = panelprod.Width - 90
                 }
+                AddHandler label.Click, AddressOf labeledit_click
                 panelprod.Controls.Add(label)
+                Dim botremov As New FontAwesome.Sharp.IconButton With
+                    {
+                .Location = New Point(panelprod.Width.ToString - 70, pos),
+                .Height = 40,
+                .Width = 40,
+                .IconChar = IconChar.TrashAlt,
+                .FlatStyle = FlatStyle.Flat
+                }
+                AddHandler botremov.Click, AddressOf botaoremov_click
+                panelprod.Controls.Add(botremov)
                 Exit Sub
 checkprod:
                 valfin = ""
@@ -336,137 +350,151 @@ checkprod:
             End If
         End If
     End Sub
+    Private Sub labeledit_click(sender As Object, e As EventArgs)
+        Dim label As New Label
+        Dim precoin As String = ""
+        Dim nomeprod As String = ""
+        Dim valpag As String = ""
+        Dim novaquant As Integer
+        Dim novoval As Integer
+        For Each ctrl As Control In panelprod.Controls
+            If sender.Equals(ctrl) Then
+                label = ctrl
+                Exit For
+            End If
+        Next
+        Dim i As Integer = 0
+        quant = Nothing
+
+        While label.Text(i) <> "x"
+            If label.Text(i) <> "x" Then
+                quant += label.Text(i)
+            End If
+            i += 1
+        End While
+        i += 1
+        While label.Text(i) <> "-"
+            nomeprod += label.Text(i)
+            i += 1
+        End While
+        i += 1
+        While label.Text(i) <> "€"
+            precoin += label.Text(i)
+            i += 1
+        End While
+        i = 0
+        While lbpreco.Text(i) <> "€"
+            valpag += lbpreco.Text(i)
+            i += 1
+        End While
+inputrepeat:
+        novaquant = InputBox("Quantidade Atual: " & quant & ". Insira a nova quantidade: ", "Alteração Quantidade")
+        Try
+            If novaquant >= 0 Then
+                label.Text = novaquant & "x " & nomeprod & "-" & precoin & "€"
+                novoval = -(Val(quant) * Val(precoin))
+                novoval += (Val(novaquant) * Val(precoin))
+                valpag = Convert.ToInt32(valpag) + Convert.ToInt32(novoval)
+                lbpreco.Text = valpag & " €"
+            Else
+                MessageBox.Show("Deve introduzir um valor superior a 0")
+                GoTo inputrepeat
+            End If
+        Catch ex As Exception
+            Exit Sub
+        End Try
+    End Sub
+    Private Sub prod_click(sender As Object, e As EventArgs)
+        Dim panel As Panel = Nothing
+        Dim lbpreco As Label = Nothing
+        Dim lb As Label = Nothing
+        Dim icon As New FontAwesome.Sharp.IconPictureBox
+        For Each ctrl As Control In panelprods.Controls
+            For Each ctrls As Control In ctrl.Controls
+                If sender.Equals(ctrls) Then
+                    panel = ctrl
+                End If
+            Next
+        Next
+        For Each ctrl As Control In panel.Controls
+            If ctrl.Name.Contains("lbpreco") Then
+                lbpreco = ctrl
+            ElseIf ctrl.Name.Contains("lb") Then
+                lb = ctrl
+            ElseIf ctrl.Name.Contains("IconEdit") Then
+                icon = ctrl
+            End If
+        Next
+        prodclick(lb, lbpreco, icon)
+    End Sub
+    Private Sub botaoremov_click(sender As Object, e As EventArgs)
+        Dim y As Integer
+        Dim preco As String = ""
+        For Each ctrl As Control In panelprod.Controls
+            If sender.Equals(ctrl) Then
+                y = Val(ctrl.Location.Y.ToString)
+                panelprod.Controls.Remove(ctrl)
+            End If
+        Next
+        For Each ctrl As Control In panelprod.Controls
+            If ctrl.GetType.ToString = "System.Windows.Forms.Label" Then
+                Dim i As Integer
+                quant = Nothing
+                If y = Val(ctrl.Location.Y.ToString) Then
+                    While ctrl.Text(i) <> "x"
+                        If ctrl.Text(i) <> "x" Then
+                            quant += ctrl.Text(i)
+                        End If
+                        i += 1
+                    End While
+                    While ctrl.Text(i) <> "-"
+                        i += 1
+                    End While
+                    i += 1
+                    While ctrl.Text(i) <> "€"
+                        preco += ctrl.Text(i)
+                        i += 1
+                    End While
+                    y = Val(ctrl.Location.Y.ToString)
+                    panelprod.Controls.Remove(ctrl)
+                    Exit For
+                End If
+            End If
+        Next
+        lbpreco.Text = Val(lbpreco.Text) - (Val(preco) * Val(quant)) & "€"
+        For Each ctrl As Control In panelprod.Controls
+            If y < ctrl.Location.Y.ToString Then
+                ctrl.Location = New Point(ctrl.Location.X.ToString, Val(ctrl.Location.Y.ToString) - 90)
+            End If
+        Next
+        y = Nothing
+        quant = Nothing
+        For Each ctrl As Control In Me.Controls
+            If ctrl.GetType.ToString = "System.Windows.Forms.Panel" Then
+                If ctrl.Contains(lb5) Then
+                    For Each contr As Control In ctrl.Controls
+                        If contr.Name.Contains("lbpreco") Then
+                            MessageBox.Show("labelpreco: " & contr.Name)
+                        ElseIf contr.Name.Contains("lb") Then
+                            MessageBox.Show("label: " & contr.Name)
+                        End If
+                    Next
+                End If
+            End If
+        Next
+    End Sub
+    Private Sub lbpreco_Click(sender As Object, e As EventArgs) Handles lbpreco.TextChanged
+
+    End Sub
     Private Sub btnAdic_Click(sender As Object, e As EventArgs) Handles btnAdic.Click
         FormAddProd.Show()
     End Sub
 
     Private Sub btnpagamento_Click(sender As Object, e As EventArgs) Handles btnPagamento.Click
         FormPagamento.Show()
+        FormPagamento.lbval.Text = valpagar
+        For Each label As Label In panelprod.Controls
+            FormPagamento.panelresumo.Controls.Add(label)
+        Next
     End Sub
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        prodclick(lb1, lbpreco1, IconEdit1)
-    End Sub
-
-    Private Sub lb1_Click(sender As Object, e As EventArgs) Handles lb1.Click
-        prodclick(lb1, lbpreco1, IconEdit1)
-    End Sub
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        prodclick(lb2, lbpreco2, IconEdit2)
-    End Sub
-    Private Sub lb2_Click(sender As Object, e As EventArgs) Handles lb2.Click
-        prodclick(lb2, lbpreco2, IconEdit2)
-    End Sub
-
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-        prodclick(lb3, lbpreco3, IconEdit3)
-    End Sub
-    Private Sub lb3_Click(sender As Object, e As EventArgs) Handles lb3.Click
-        prodclick(lb3, lbpreco3, IconEdit3)
-    End Sub
-
-    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
-        prodclick(lb4, lbpreco4, IconEdit4)
-    End Sub
-    Private Sub lb4_Click(sender As Object, e As EventArgs) Handles lb4.Click
-        prodclick(lb4, lbpreco4, IconEdit4)
-    End Sub
-
-    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
-        prodclick(lb5, lbpreco5, IconEdit5)
-    End Sub
-    Private Sub lb5_Click(sender As Object, e As EventArgs) Handles lb5.Click
-        prodclick(lb5, lbpreco5, IconEdit5)
-    End Sub
-
-    Private Sub PictureBox6_Click(sender As Object, e As EventArgs) Handles PictureBox6.Click
-        prodclick(lb6, lbpreco6, IconEdit6)
-    End Sub
-    Private Sub lb6_Click(sender As Object, e As EventArgs) Handles lb6.Click
-        prodclick(lb6, lbpreco6, IconEdit6)
-    End Sub
-
-    Private Sub PictureBox7_Click(sender As Object, e As EventArgs) Handles PictureBox7.Click
-        prodclick(lb7, lbpreco7, IconEdit7)
-    End Sub
-    Private Sub lb7_Click(sender As Object, e As EventArgs) Handles lb7.Click
-        prodclick(lb7, lbpreco7, IconEdit7)
-    End Sub
-
-    Private Sub PictureBox8_Click(sender As Object, e As EventArgs) Handles PictureBox8.Click
-        prodclick(lb8, lbpreco8, IconEdit8)
-    End Sub
-    Private Sub lb8_Click(sender As Object, e As EventArgs) Handles lb8.Click
-        prodclick(lb8, lbpreco8, IconEdit8)
-    End Sub
-
-    Private Sub PictureBox9_Click(sender As Object, e As EventArgs) Handles PictureBox9.Click
-        prodclick(lb9, lbpreco9, IconEdit9)
-    End Sub
-    Private Sub lb9_Click(sender As Object, e As EventArgs) Handles lb9.Click
-        prodclick(lb9, lbpreco9, IconEdit9)
-    End Sub
-
-    Private Sub PictureBox10_Click(sender As Object, e As EventArgs) Handles PictureBox10.Click
-        prodclick(lb10, lbpreco10, IconEdit10)
-    End Sub
-    Private Sub lb10_Click(sender As Object, e As EventArgs) Handles lb10.Click
-        prodclick(lb10, lbpreco10, IconEdit10)
-    End Sub
-
-    Private Sub PictureBox11_Click(sender As Object, e As EventArgs) Handles PictureBox11.Click
-        prodclick(lb11, lbpreco11, IconEdit11)
-    End Sub
-    Private Sub lb11_Click(sender As Object, e As EventArgs) Handles lb11.Click
-        prodclick(lb11, lbpreco11, IconEdit11)
-    End Sub
-    Private Sub PictureBox12_Click(sender As Object, e As EventArgs) Handles PictureBox12.Click
-        prodclick(lb12, lbpreco12, IconEdit12)
-    End Sub
-    Private Sub lb12_Click(sender As Object, e As EventArgs) Handles lb12.Click
-        prodclick(lb12, lbpreco12, IconEdit12)
-    End Sub
-
-    Private Sub PictureBox13_Click(sender As Object, e As EventArgs) Handles PictureBox13.Click
-        prodclick(lb13, lbpreco13, IconEdit13)
-    End Sub
-    Private Sub lb13_Click(sender As Object, e As EventArgs) Handles lb13.Click
-        prodclick(lb13, lbpreco13, IconEdit13)
-    End Sub
-
-    Private Sub PictureBox14_Click(sender As Object, e As EventArgs) Handles PictureBox14.Click
-        prodclick(Lb14, lbpreco14, IconEdit14)
-    End Sub
-    Private Sub lb14_Click(sender As Object, e As EventArgs) Handles Lb14.Click
-        prodclick(Lb14, lbpreco14, IconEdit14)
-    End Sub
-
-    Private Sub PictureBox15_Click(sender As Object, e As EventArgs) Handles PictureBox15.Click
-        prodclick(Lb15, lbpreco15, IconEdit15)
-    End Sub
-    Private Sub lb15_Click(sender As Object, e As EventArgs) Handles Lb15.Click
-        prodclick(Lb15, lbpreco15, IconEdit15)
-    End Sub
-
-    Private Sub PictureBox16_Click(sender As Object, e As EventArgs) Handles PictureBox16.Click
-        prodclick(lb16, lbpreco16, IconEdit16)
-    End Sub
-    Private Sub lb16_Click(sender As Object, e As EventArgs) Handles lb16.Click
-        prodclick(lb16, lbpreco16, IconEdit16)
-    End Sub
-
-    Private Sub PictureBox17_Click(sender As Object, e As EventArgs) Handles PictureBox17.Click
-        prodclick(lb17, lbpreco17, IconEdit17)
-    End Sub
-    Private Sub lb17_Click(sender As Object, e As EventArgs) Handles lb17.Click
-        prodclick(lb17, lbpreco17, IconEdit17)
-    End Sub
-
-    Private Sub PictureBox18_Click(sender As Object, e As EventArgs) Handles PictureBox18.Click
-        prodclick(lb18, lbpreco18, IconEdit18)
-    End Sub
-    Private Sub lb18_Click(sender As Object, e As EventArgs) Handles lb18.Click
-        prodclick(lb18, lbpreco18, IconEdit18)
-    End Sub
-
-
 End Class
