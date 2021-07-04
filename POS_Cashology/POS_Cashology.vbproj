@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{574F8AD8-1006-4446-B835-BF4459FBEE64}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>POS_Cashology.My.MyApplication</StartupObject>
+    <StartupObject>POS_Cashology.FormInicio</StartupObject>
     <RootNamespace>POS_Cashology</RootNamespace>
     <AssemblyName>POS_Cashology</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -82,6 +82,55 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>POS_Cashology.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>POS_Cashology.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>POS_Cashology.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>POS_Cashology.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1519894127476.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net45\FontAwesome.Sharp.dll</HintPath>
@@ -123,16 +172,16 @@
     <Compile Include="FormAddProd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formadicimagem.Designer.vb">
-      <DependentUpon>Formadicimagem.vb</DependentUpon>
+    <Compile Include="FormEditarProduto.Designer.vb">
+      <DependentUpon>FormEditarProduto.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formadicimagem.vb">
+    <Compile Include="FormEditarProduto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHistVendas.Designer.vb">
-      <DependentUpon>FormHistVendas.vb</DependentUpon>
+    <Compile Include="FormGestaoProd.Designer.vb">
+      <DependentUpon>FormGestaoProd.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormHistVendas.vb">
+    <Compile Include="FormGestaoProd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInicio.vb">
@@ -154,22 +203,34 @@
     <Compile Include="FormConfig.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormLogin.Designer.vb">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPagamento.Designer.vb">
       <DependentUpon>FormPagamento.vb</DependentUpon>
     </Compile>
     <Compile Include="FormPagamento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPedidos.Designer.vb">
-      <DependentUpon>FormPedidos.vb</DependentUpon>
+    <Compile Include="FormPedid.Designer.vb">
+      <DependentUpon>FormPedid.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormPedidos.vb">
+    <Compile Include="FormPedid.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormQuant.Designer.vb">
       <DependentUpon>FormQuant.vb</DependentUpon>
     </Compile>
     <Compile Include="FormQuant.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRemoverProduto.Designer.vb">
+      <DependentUpon>FormRemoverProduto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRemoverProduto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -189,16 +250,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="mysql.vb" />
+    <Compile Include="resizer.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormAddProd.resx">
       <DependentUpon>FormAddProd.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formadicimagem.resx">
-      <DependentUpon>Formadicimagem.vb</DependentUpon>
+    <EmbeddedResource Include="FormEditarProduto.resx">
+      <DependentUpon>FormEditarProduto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormHistVendas.resx">
-      <DependentUpon>FormHistVendas.vb</DependentUpon>
+    <EmbeddedResource Include="FormGestaoProd.resx">
+      <DependentUpon>FormGestaoProd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.vb</DependentUpon>
@@ -209,15 +271,22 @@
     <EmbeddedResource Include="FormConfig.resx">
       <DependentUpon>FormConfig.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPagamento.resx">
       <DependentUpon>FormPagamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedidos.resx">
-      <DependentUpon>FormPedidos.vb</DependentUpon>
+    <EmbeddedResource Include="FormPedid.resx">
+      <DependentUpon>FormPedid.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuant.resx">
       <DependentUpon>FormQuant.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRemoverProduto.resx">
+      <DependentUpon>FormRemoverProduto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -276,7 +345,10 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="1519894127476.ico" />
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FontAwesome.Sharp.dll" />
   </ItemGroup>

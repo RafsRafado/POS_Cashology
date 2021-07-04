@@ -1,0 +1,111 @@
+﻿    Private Sub labeledit_click(sender As Object, e As EventArgs)
+        If IconButton2.Text = "Editar" Then
+            Exit Sub
+        End If
+        For Each cntrl In panelprod.Controls
+            If sender.Equals(cntrl) Then
+                labeledit = cntrl
+            End If
+        Next
+        txtval = False
+        Dim precoin As String = ""
+        Dim nomeprod As String = ""
+        Dim valpag As String = ""
+        Dim novaquant As Integer
+        Dim novoval As Integer
+
+        Dim i As Integer = 0
+        quant = Nothing
+        novaquantprod = Nothing
+        Application.DoEvents()
+        If labeledit.Name = Nothing Then
+            labeleditad = True
+            Exit Sub
+        End If
+        While labeledit.Text(i) <> "x"
+            Application.DoEvents()
+            If labeledit.Text(i) <> "x" Then
+                quant += labeledit.Text(i)
+            End If
+            i += 1
+        End While
+        i += 1
+        While labeledit.Text(i) <> "-"
+            Application.DoEvents()
+            nomeprod += labeledit.Text(i)
+            i += 1
+        End While
+        i += 1
+        While labeledit.Text(i) <> " "
+            Application.DoEvents()
+            precoin += labeledit.Text(i)
+            i += 1
+        End While
+        i = 0
+        While lbpreco.Text(i) <> " "
+            Application.DoEvents()
+            valpag += lbpreco.Text(i)
+            i += 1
+        End While
+inputrepeat:
+        Try
+            labeledit.BackColor = RGBColors.color3
+            txtval = False
+            While txtval = False
+                Application.DoEvents()
+                FormInicio.wait(0.2)
+                If IconButton2.Text = "Editar" And TextBox1.Text = "" Then
+                    labeledit.BackColor = Color.Transparent
+                    Exit Sub
+                End If
+            End While
+            novaquant = novaquantprod
+            labeledit.BackColor = Color.Transparent
+        Catch ex As Exception
+            GoTo inputrepeat
+        End Try
+        Try
+            If novaquant > 0 Then
+                labeledit.Text = novaquant & "x " & nomeprod & "-" & precoin & "€"
+                novoval = -(Val(quant) * Val(precoin))
+                novoval += (Val(novaquant) * Val(precoin))
+                valpag = Convert.ToInt32(valpag) + Convert.ToInt32(novoval)
+                lbpreco.Text = valpag & " €"
+                novaquantprod = Nothing
+            Else
+                MessageBox.Show("Deve introduzir um valor superior a 0")
+                GoTo inputrepeat
+            End If
+        Catch ex As Exception
+            labeleditad = True
+        Exit Sub
+        End Try
+        labeleditad = True
+    End Sub
+
+
+
+        Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+        If IconButton2.Text = "Editar" Then
+            IconButton2.Text = "Concluir Edição"
+            labeleditad = False
+            TextBox1.Enabled = True
+        Else
+            If TextBox1.Text <> "" Then
+                novaquantprod = TextBox1.Text
+            Else
+                labeledit.BackColor = Color.Transparent
+                IconButton2.Text = "Editar"
+                TextBox1.Clear()
+                Exit Sub
+            End If
+            While labeleditad = False
+                FormInicio.wait(0.2)
+            End While
+            TextBox1.Enabled = False
+            IconButton2.Text = "Editar"
+            TextBox1.Clear()
+        End If
+    End Sub
+
+

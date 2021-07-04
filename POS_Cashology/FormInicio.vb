@@ -11,7 +11,7 @@ Public Class FormInicio
     Public bytes(10024) As Byte
     Public stream As NetworkStream
     Public ip, tempmens, xmessag, menstem, VlorRecicladores, VlorStacker As String
-    Public vreceb As Integer
+    Public vreceb, CPA As Integer
     Public mensagem, link As String
     Public con As New MySqlConnection("server=" & mysql.server & ";user=" & mysql.user & ";password=" & mysql.password & ";database=" & mysql.database & "")
     Public cmd, CMDquant As New MySqlCommand
@@ -19,7 +19,7 @@ Public Class FormInicio
     Public DT, DTquant As New DataTable
     Public Table As String = "tablequant"
     Public Data, DataQuant As Integer
-    Private btnativo As IconButton
+    Private btnativo As IconButton = Nothing
     Private btnbordaesquerda As Panel
     Private formatual As Form
     Public quantd(0, 0) As Integer
@@ -28,7 +28,8 @@ Public Class FormInicio
     Dim timage As Bitmap
     Dim estadomenu As String = "Abrir"
     Dim tclient As WebClient = New WebClient
-    Public continuarpag As Boolean
+    Public continuarpag, btnatv As Boolean
+    Dim cont As Integer
 
     Public Sub New()
 
@@ -49,6 +50,7 @@ Public Class FormInicio
         If senderbtn IsNot Nothing Then
 Retry:
             Try
+                btnatv = True
                 btnativo = CType(senderbtn, IconButton)
                 btnativo.BackColor = Color.FromArgb(37, 36, 81)
                 btnativo.ForeColor = customcolor
@@ -103,12 +105,11 @@ Retr:
         formulariofilho.BringToFront()
         formulariofilho.Show()
         lbTituloForm.Text = btnativo.Text
-
     End Sub
 
     Private Sub btnPedido_Click(sender As Object, e As EventArgs) Handles btnPedido.Click
         ativarbotao(sender, RGBColors.color6)
-        abrirformulariof(New FormPedidos)
+        abrirformulariof(New FormPedid)
     End Sub
     Private Sub btnPedido_sair(sender As Object, e As EventArgs) Handles btnPedido.Leave
         desativarbotao()
@@ -130,22 +131,31 @@ Retr:
         desativarbotao()
     End Sub
 
-    Private Sub btnConfig_Click(sender As Object, e As EventArgs) Handles btnConfig.Click
-        ativarbotao(sender, RGBColors.color4)
-        abrirformulariof(New FormConfig)
+    Private Sub btnConfig_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+        If formatual IsNot Nothing Then
+            formatual.Close()
+        End If
+        formatual = FormConfig
+        FormConfig.TopLevel = False
+        FormConfig.FormBorderStyle = FormBorderStyle.None
+        FormConfig.Dock = DockStyle.Fill
+        PanelDesktop.Controls.Add(FormConfig)
+        PanelDesktop.Tag = FormConfig
+        FormConfig.BringToFront()
+        FormConfig.Show()
     End Sub
-    Private Sub btnConfig_sair(sender As Object, e As EventArgs) Handles btnConfig.Leave
+    Private Sub btnConfig_sair(sender As Object, e As EventArgs) Handles IconButton2.Leave
         desativarbotao()
     End Sub
-    Private Sub btnHist_Click(sender As Object, e As EventArgs) Handles btnHist.Click
-        ativarbotao(sender, RGBColors.color3)
-        abrirformulariof(New FormHistVendas)
-    End Sub
+
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         If estadomenu = "Abrir" Then
             If PanelMenu.Width < 220 Then
                 PanelMenu.Width += 10
                 PanelLogo.Height += 3.6
+                If btnatv Then
+                    btnbordaesquerda.Location = New Point(0, btnativo.Location.Y)
+                End If
             Else
                 atribnomemenu()
                 estadomenu = "Fechar"
@@ -158,6 +168,9 @@ Retr:
                 End If
                 PanelMenu.Width -= 10
                 PanelLogo.Height -= 3.6
+                If btnatv Then
+                    btnbordaesquerda.Location = New Point(0, btnativo.Location.Y)
+                End If
             Else
                 estadomenu = "Abrir"
                 Timer2.Stop()
@@ -166,21 +179,11 @@ Retr:
         End If
     End Sub
 
+
     Private Sub btnmenuenabled()
         btnPedido.Enabled = True
         btnQuant.Enabled = True
         btnBalDiar.Enabled = True
-        btnConfig.Enabled = True
-        btnHist.Enabled = True
-    End Sub
-
-    Private Sub IconButton2_Click(sender As Object, e As EventArgs)
-        ativarbotao(sender, RGBColors.color3)
-        abrirformulariof(New FormPedidos)
-    End Sub
-
-    Private Sub btnHist_sair(sender As Object, e As EventArgs) Handles btnHist.Leave
-        desativarbotao()
     End Sub
     Private Sub imgHome_Click(sender As Object, e As EventArgs) Handles imgHome.Click
         If formatual IsNot Nothing Then
@@ -216,21 +219,16 @@ Retr:
         ReDim quantd(14, 1)
         Control.CheckForIllegalCrossThreadCalls = False
         BackgroundWorker2.RunWorkerAsync()
-
     End Sub
     Private Sub desatnomemenu()
         btnPedido.Text = ""
         btnQuant.Text = ""
         btnBalDiar.Text = ""
-        btnConfig.Text = ""
-        btnHist.Text = ""
     End Sub
     Private Sub atribnomemenu()
         btnPedido.Text = "Fazer Pedido"
         btnQuant.Text = "Quantidades"
         btnBalDiar.Text = "Balanço Diário"
-        btnConfig.Text = "Configurações"
-        btnHist.Text = "Histórico Vendas"
     End Sub
 
     Private Sub btnAbrirMenu_Click(sender As Object, e As EventArgs) Handles btnAbrirMenu.Click
@@ -247,67 +245,77 @@ Recon:
             GoTo Recon
             Exit Sub
         End Try
-        Dim cmd As New MySqlCommand("SELECT COUNT(*) FROM config", con)
+        Dim cmd As New MySqlCommand
         cmd.CommandType = CommandType.Text
         cmd.CommandText = "SELECT * from config"
         sda = New MySqlDataAdapter(cmd.CommandText, con)
         DT = New DataTable
         Data = sda.Fill(DT)
-        Try
-            GoTo repeatp
-            socket.Connect(DT.Rows(0)(0), DT.Rows(0)(1))
-            stream = socket.GetStream
-            Enviar("#T#")
-            receberdata()
-            While mensagem = ""
+        CPA = DT.Rows(0)(2)
+        If CPA = 1 Then
+            Try
+                socket.Connect(DT.Rows(0)(0), DT.Rows(0)(1))
+                stream = socket.GetStream
+                Enviar("#T#")
+                receberdata()
+                While mensagem = ""
+                    cont += 1
+                    If cont = 10 Then
+                        lbstatus.Text = "Ocorreu um erro ao conectar com a máquina"
+                        PictureBox1.Image = My.Resources.iconfinder_Error_381599
+                        Exit Sub
+                    End If
+                    wait(0.25)
+                    receberdata()
+                End While
+                If Not mensagem.Contains("ER:") Then
+                    GoTo Endcon
+                End If
+                mensagem = ""
+                Enviar("#I#")
                 wait(0.25)
                 receberdata()
-            End While
-            If Not mensagem.Contains("ER:") Then
-                GoTo Endcon
-            End If
-            mensagem = ""
-            Enviar("#I#")
-            wait(0.25)
-            receberdata()
-            While mensagem = ""
-                wait(0.1)
-                receberdata()
-            End While
-            If mensagem.Contains("ER:") Then
-                lbstatus.Text = "Ocorreu um erro ao conectar com a máquina"
+                While mensagem = ""
+                    wait(0.1)
+                    receberdata()
+                End While
+                If mensagem.Contains("ER:") Then
+                    lbstatus.Text = "Ocorreu um erro ao conectar com a máquina"
+                    PictureBox1.Image = My.Resources.iconfinder_Error_381599
+                    Exit Sub
+                End If
+                MessageBox.Show("3")
+Endcon:
+                lbstatus.Text = "Conectado com sucesso."
+                PictureBox1.Image = My.Resources.green_checkmarck
+            Catch ex As Exception
+                lbstatus.Text = "Ocorreu um erro ao tentar conectar com a máquina."
                 PictureBox1.Image = My.Resources.iconfinder_Error_381599
                 Exit Sub
-            End If
-            MessageBox.Show("3")
-Endcon:
-            lbstatus.Text = "Conectado com sucesso."
-            PictureBox1.Image = My.Resources.green_checkmarck
-        Catch ex As Exception
-            lbstatus.Text = "Ocorreu um erro ao tentar conectar com a máquina."
-            PictureBox1.Image = My.Resources.iconfinder_Error_381599
-            Exit Sub
-        End Try
+            End Try
 repeatq:
-        Try
-            quant(1, 0)
-            quant(2, 1)
-            quant(5, 2)
-            quant(10, 3)
-            quant(20, 4)
-            quant(50, 5)
-            quant(100, 6)
-            quant(200, 7)
-            quant(500, 8)
-            quant(1000, 9)
-            quant(2000, 10)
-            quant(5000, 11)
-            quant(10000, 12)
-            quant(20000, 13)
-            quant(50000, 14)
-        Catch ex As Exception
-            'GoTo repeatq
-        End Try
+            Try
+                quant(1, 0)
+                quant(2, 1)
+                quant(5, 2)
+                quant(10, 3)
+                quant(20, 4)
+                quant(50, 5)
+                quant(100, 6)
+                quant(200, 7)
+                quant(500, 8)
+                quant(1000, 9)
+                quant(2000, 10)
+                quant(5000, 11)
+                quant(10000, 12)
+                quant(20000, 13)
+                quant(50000, 14)
+            Catch ex As Exception
+                GoTo repeatq
+            End Try
+        Else
+            btnQuant.Visible = False
+        End If
 repeatp:
         Try
             Pedidos("Menu", dt_menus)
@@ -315,27 +323,12 @@ repeatp:
             Pedidos("Pratos", dt_pratos)
             Pedidos("Lanche", dt_lanche)
         Catch ex As Exception
-            GoTo repeatp
+            MessageBox.Show("Ocorreu um erro ao contactar com a base de dados.")
         End Try
-        guardimgs(dt_menus, imgmenus)
-        guardimgs(dt_bebidas, imgbebidas)
-        guardimgs(dt_pratos, imgpratos)
-        guardimgs(dt_lanche, imglanche)
         lbstatus.Text = ""
         PictureBox1.Image = Nothing
         btnmenuenabled()
 
-    End Sub
-    Private Sub guardimgs(ByVal dt As DataTable, ByVal bitmaplist As List(Of Bitmap))
-        For Each row As DataRow In dt.Rows
-            Try
-                link = row("imagem")
-                timage = Bitmap.FromStream(New MemoryStream(tclient.DownloadData(link)))
-                bitmaplist.Add(timage)
-            Catch ex As Exception
-                Continue For
-            End Try
-        Next
     End Sub
     Private Sub quant(ByVal num As Integer, ByVal pos As Integer)
 qret:
@@ -401,17 +394,13 @@ reciclvl:
     End Sub
     Public Sub Pedidos(ByVal tipo As String, dt As DataTable)
 pedrep:
-        Try
-            cmd.CommandType = CommandType.Text
-            cmd.CommandText = "SELECT nome,imagem,preco FROM pedidos_" & tipo
-            sda = New MySqlDataAdapter(cmd.CommandText, con)
-            Data = sda.Fill(dt)
-        Catch ex As Exception
-            GoTo pedrep
-        End Try
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = "SELECT nome,preco,pedido.idPedido FROM pedido,tipopedidos where tipopedidos.tipopedido= '" & tipo & "' AND tipopedidos.idpedido=pedido.idpedido order by length(Nome), Nome;"
+        sda = New MySqlDataAdapter(cmd.CommandText, con)
+        Data = sda.Fill(dt)
     End Sub
 
-    Private Sub wait(ByVal segundos As Integer)
+    Public Sub wait(ByVal segundos As Integer)
         For i As Integer = 0 To segundos * 100
             System.Threading.Thread.Sleep(10)
             Application.DoEvents()
@@ -437,7 +426,6 @@ err:
             wait(0.25)
             GoTo err
         End Try
-
     End Sub
     Public Sub receberdata()
         mensagem = ""
@@ -459,7 +447,7 @@ err:
             MessageBox.Show("Deve ser digitado um valor numérico.", "Erro")
         End Try
         Enviar("#B#0#0#0#")
-        wait(0.05)
+        wait(0.1)
         receberdata()
         If mensagem.Contains("ER:") Then
             MessageBox.Show("Ocorreu um erro.", mensagem)
